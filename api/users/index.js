@@ -19,7 +19,6 @@ router.route(`/`)
   return new User({ username, password })
   .save()
   .then((user) => {
-    console.log(user.toJSON());
     return res.json(user);
   })
   .catch((err) => {

@@ -1,12 +1,16 @@
 const express = require(`express`);
 const server = express();
 const bodyParser = require(`body-parser`);
+const apiRouter = require(`./api`);
 const usersRoute = require(`./api/users`);
+const topicsRoute = require(`./api/topics`);
+const messagesRoute = require(`./api/messages`);
 
 const PORT = process.env.PORT || 8080;
 
 server.use(bodyParser.json());
-server.use(`/api/users`, usersRoute);
+
+server.use(`/api`, apiRouter);
 
 server.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
