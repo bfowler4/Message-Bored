@@ -6,11 +6,8 @@ module.exports = router;
 router.route(`/`)
 .get((req, res) => {
   return Topic
-  .fetchAll({ withRelated: {
-    user(query) {
-      query.select(`username`, `id`);
-    }
-  }})
+  .fetchAll({ withRelated: [`user`, `messages.user`]
+  })
   .then((topics) => {
     return res.json(topics);
   })

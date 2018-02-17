@@ -1,0 +1,12 @@
+<div ng-include="'/views/navigation.html'"></div>
+
+<h1>Register</h1>
+<form>
+  <input type='text' ng-model='username' placeholder="username" autofocus>
+  <br>
+  <input type='text' ng-model='password' placeholder="password">
+  <br>
+  <button ng-click="register()">Submit</button>
+</form>
+
+{{ user }}

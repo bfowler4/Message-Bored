@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Message Board</title>
+  <base href='/'>
+</head>
+<body ng-app='myApp'>
+  <ng-view></ng-view>
+  
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js'></script>
+  <script type='text/javascript' src='/scripts/app.js'></script>
+  <script type='text/javascript' src='/scripts/values.js'></script>
+  <script type='text/javascript' src='/controllers/home.controller.js'></script>
+  <script type='text/javascript' src='/controllers/users.controller.js'></script>
+  <script type='text/javascript' src='/scripts/users.service.js'></script> 
+  <script type='text/javascript' src='/controllers/users.detail.controller.js'></script>
+  <script type='text/javascript' src='/controllers/navigation.controller.js'></script>
+  <script type='text/javascript' src='/scripts/topics.service.js'></script> 
+  <script type='text/javascript' src='/controllers/latest.controller.js'></script>
+  <script type='text/javascript' src='/scripts/latest.service.js'></script>
+  <script type='text/javascript' src='/controllers/topics.controller.js'></script>
+  <script type='text/javascript' src='/scripts/register.service.js'></script>
+  <script type='text/javascript' src='/controllers/register.controller.js'></script>
+  <script type='text/javascript' src='/scripts/login.service.js'></script>
+  <script type='text/javascript' src='/controllers/login.controller.js'></script>
+  <script type='text/javascript' src='/controllers/logout.controller.js'></script>
+</body>
+</html>

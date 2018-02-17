@@ -9,14 +9,8 @@ router.get(`/latest`, (req, res) => {
     qb.limit(10)
   })
   .orderBy(`created_at`, `DESC`)
-  .fetchAll({ withRelated: {
-    topic(query) {
-      query.select(`name`, `id`);
-    },
-    user(query) {
-      query.select(`username`, `id`);
-    }
-  }})
+  .fetchAll({ withRelated: [`user`, `topic`]
+  })
   .then((messages) => {
     return res.json(messages);
   })

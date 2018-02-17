@@ -1,0 +1,10 @@
+<h1>Latest Messages</h1>
+<div ng-include="'/views/navigation.html'"></div>
+<ol>
+  <li ng-repeat='message in messages'>
+    <h3>Topic: {{ message.topic.name }}</h3>
+    <h4>User: {{ message.user.username }}</h4>
+    <h4>Created At: {{ message.created_at }}</h4>
+    <p>{{ message.body }}</p>
+  </li>
+</ol>
