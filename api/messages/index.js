@@ -22,14 +22,8 @@ router.get(`/latest`, (req, res) => {
   return Message
   .where({ topic_id: req.params.topic_id })
   .orderBy(`created_at`, `ASC`)
-  .fetchAll({ withRelated: {
-    user(query) {
-      query.select(`username`, `id`);
-    },
-    topic(query) {
-      query.select(`name`, `id`);
-    }
-  }})
+  .fetchAll({ withRelated: [`user`, `topic`]
+  })
   .then((messages) => {
     return res.json(messages);
   })
