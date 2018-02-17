@@ -1,10 +1,15 @@
-<div ng-include="'/views/navigation.html'"></div>
+<h1>Users</h1>
+<div class='outer_container'>
+  <div ng-include="'/views/navigation.html'"></div>
 
-<ul>
-  <li ng-repeat='user in users'>
-    <h2>User ID: {{ user.id }}</h2>
-    <p> Username: {{ user.username }} </p>
-    <p> Created At: {{ user.created_at }}</p>
-    <button ng-click='goToUser(user.id)'>View User</button>
-  </li>
-</ul>
+  <div class='users_content_container'>
+    <ul>
+      <li ng-repeat='user in users'>
+        <h2>User ID: {{ user.id }}</h2>
+        <p> Username: {{ user.username }} </p>
+        <p> Created At: {{ user.created_at }}</p>
+        <button ng-click='goToUser(user.id)'>View User</button>
+      </li>
+    </ul>
+  </div>
+</div>

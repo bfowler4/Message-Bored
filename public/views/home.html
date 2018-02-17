@@ -1,11 +1,12 @@
 <h1>Message Board Home</h1>
 
-<div ng-include="'/views/navigation.html'"></div>
+<div class='outer_container'>
+  <div class='navigation_bar' ng-include="'/views/navigation.html'"></div>
 
-<a ng-href='/users'>Users</a>
-<br>
-Search by User ID: <input type='text' ng-model='user_id_search'>
-<button ng-click='searchForUser()'>Search</button>
-<br>
-<a ng-href='/latest'>Latest</a>
-<br>
+  <div class='home_content_container'>
+    Search by User ID:
+    <input type='text' ng-model='user_id_search'>
+    <br>
+    <button ng-click='searchForUser()'>Search</button>
+  </div>
+</div>

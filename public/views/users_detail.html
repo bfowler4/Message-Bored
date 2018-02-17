@@ -1,12 +1,18 @@
-<div ng-include="'/views/navigation.html'"></div>
+<h1>User: {{ user.username }}</h1>
 
-<h1>{{ user.username }}</h1>
-<h2>Joined: {{ user.created_at }}</h2>
+<div class='outer_container'>
+  <div ng-include="'/views/navigation.html'"></div>
 
-<ul>
-  <li ng-repeat='message in user.messages'>
-    <h4>Topic: {{ message.topic.name }}</h4>
-    <p>Created At: {{ message.created_at }}</p>
-    <p>{{ message.body }}</p>
-  </li>
-</ul>
+  <div class='users_detail_content_container'>
+    <h3>Joined: {{ user.created_at }}</h2>
+      <h3>Mesages:</h3>
+
+      <ul>
+        <li ng-repeat='message in user.messages'>
+          <h4>Topic: {{ message.topic.name }}</h4>
+          <p>Created At: {{ message.created_at }}</p>
+          <p>{{ message.body }}</p>
+        </li>
+      </ul>
+  </div>
+</div>
