@@ -1,16 +1,14 @@
 angular.module(`myApp`)
-.service(`LoginService`, [`$http`,
-  function($http) {
+.service(`LoginService`, [`$http`, `$location`,
+  function($http, $location) {
 
     this.login = function(username, password) {
-      return $http.get(`http://localhost:8080/api/users`)
-      .then(users => {
-        for (let user of users.data) {
-          if (user.username === username && user.password === password) {
-            return user;
-          }
-        }
-        return false;
+      return $http.post(`http://localhost:8080/api/login`, { username, password })
+      .then(user => {
+        return user.data;
+      })
+      .catch(err => {
+        console.log(err);
       });
     }
   }

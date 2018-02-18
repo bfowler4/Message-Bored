@@ -4,9 +4,11 @@
   <div class='navigation_bar' ng-include="'/views/navigation.html'"></div>
 
   <div class='home_content_container'>
-    Search by User ID:
-    <input type='text' ng-model='user_id_search'>
-    <br>
-    <button ng-click='searchForUser()'>Search</button>
+    <form>
+      Search by User ID:
+      <input type='text' ng-model='user_id_search'>
+      <br>
+      <button ng-click='searchForUser()'>Search</button>
+    </form>
   </div>
 </div>

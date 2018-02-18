@@ -18,7 +18,13 @@ angular.module(`myApp`)
     this.getUser = function(id) {
       return $http.get(`http://localhost:8080/api/users/${id}`)
       .then(function(data) {
-        return data;
+        if (data.data) {
+          return data.data;
+        }
+        return false;
+      })
+      .catch(err => {
+        console.log(err);
       });
     }
 }]);

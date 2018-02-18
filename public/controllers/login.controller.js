@@ -1,14 +1,15 @@
 angular.module(`myApp`)
-.controller(`LoginController`, [`$scope`, `$location`, `verifiedUser`, `LoginService`,
-  function($scope, $location, verifiedUser, LoginService) {
+.controller(`LoginController`, [`$scope`, `$location`, `LoginService`,
+  function($scope, $location, LoginService) {
     $scope.username = ``;
     $scope.password = ``;
+    localStorage.removeItem(`verifiedUser`);
 
     $scope.login = function() {
       LoginService.login($scope.username, $scope.password)
       .then(user => {
         if (user) {
-          verifiedUser.id = user.id;
+          localStorage.setItem(`verifiedUser`, user.id);
           $location.url(`/`);
         } else {
           $scope.username = ``;

@@ -1,15 +1,24 @@
 const express = require(`express`);
-const server = express();
+const session = require(`express-session`);
+const passport = require(`passport`);
+const Redis = require(`connect-redis`)(session);
 const bodyParser = require(`body-parser`);
 const apiRouter = require(`./api`);
-const usersRoute = require(`./api/users`);
-const topicsRoute = require(`./api/topics`);
-const messagesRoute = require(`./api/messages`);
+const server = express();
 
 const PORT = process.env.PORT || 8080;
 
-server.use(express.static(`public`));
 server.use(bodyParser.json());
+server.use(session({
+  store: new Redis(),
+  secret: `keyboard cat`,
+  resave: false,
+  saveUninitialized: false
+}));
+server.use(express.static(`public`));
+
+server.use(passport.initialize());
+server.use(passport.session());
 
 server.use(`/api`, apiRouter);
 

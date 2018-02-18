@@ -1,9 +1,9 @@
 <div class='navigation_bar' ng-controller="NavigationController">
   <div class='upper_navigation'>
     <a href ng-click="goToLocation('/')">Home</a>
-    <a ng-if="verifiedUser.id" href ng-click="goToLocation('/logout')">Logout</a>
-    <a ng-if="!verifiedUser.id" href ng-click="goToLocation('/login')">Login</a>
-    <a ng-if="!verifiedUser.id" href ng-click="goToLocation('/register')">Register</a>
+    <a ng-if="verifiedUser" href ng-click="goToLocation('/logout')">Logout</a>
+    <a ng-if="!verifiedUser" href ng-click="goToLocation('/login')">Login</a>
+    <a ng-if="!verifiedUser" href ng-click="goToLocation('/register')">Register</a>
     <a href ng-click="goToLocation('/users')">Users</a>
   </div>
 

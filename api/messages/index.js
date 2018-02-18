@@ -1,6 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
 const Message = require(`../../db/models/Message`);
+const isAuthenticated = require(`../../utilities/authenticator`);
 module.exports = router;
 
 router.get(`/latest`, (req, res) => {
@@ -31,10 +32,10 @@ router.get(`/latest`, (req, res) => {
     return res.json({ message: err.message });
   });
 })
-.post(`/`, (req, res) => {
-  let { body, user_id, topic_id } = req.body;
+.post(`/`, isAuthenticated, (req, res) => {
+  let { body, topic_id } = req.body;
 
-  return new Message({ body, user_id, topic_id })
+  return new Message({ body, topic_id, user_id: req.user.id })
   .save()
   .then((message) => {
     return res.json(message);

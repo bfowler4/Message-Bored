@@ -7,5 +7,5 @@ angular.module(`myApp`)
     .then(topics => {
       $scope.topics = topics;
     });
-    $scope.verifiedUser = verifiedUser;
+    $scope.verifiedUser = localStorage.getItem(`verifiedUser`);
 }]);

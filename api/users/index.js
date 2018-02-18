@@ -1,7 +1,9 @@
 const express = require(`express`);
 const router = express.Router();
 const User = require(`../../db/models/User`);
+
 module.exports = router;
+
 
 router.route(`/`)
 .get((req, res) => {
@@ -10,7 +12,7 @@ router.route(`/`)
     return res.json(users);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   });
 })
 .post((req, res) => {
@@ -22,7 +24,7 @@ router.route(`/`)
     return res.json(user);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   });
 });
 
@@ -39,6 +41,6 @@ router.route(`/:id`)
     return res.json(user);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   })
 });
