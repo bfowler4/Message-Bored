@@ -2,6 +2,7 @@ const express = require(`express`);
 const router = express.Router();
 const Topic = require(`../../db/models/Topic`);
 const isAuthenticated = require(`../../utilities/authenticator`);
+const handleError = require(`../../utilities/errorHandler`);
 
 module.exports = router;
 
@@ -15,7 +16,7 @@ router.route(`/`)
     return res.json(topics);
   })
   .catch((err) => {
-    return res.status(400).json({ message: err.message });
+    return handleError(err, res);
   });
 })
 .post(isAuthenticated, (req, res) => {
@@ -28,7 +29,7 @@ router.route(`/`)
     return res.json(topic);
   })
   .catch((err) => {
-    return res.status(400).json({ message: err.message });
+    return handleError(err, res);
   });
 });
 
@@ -48,6 +49,6 @@ router.route(`/:id`)
     return res.json(topic);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return handleError(err, res);
   });
 });

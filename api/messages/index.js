@@ -2,7 +2,10 @@ const express = require(`express`);
 const router = express.Router();
 const Message = require(`../../db/models/Message`);
 const isAuthenticated = require(`../../utilities/authenticator`);
+const handleError = require(`../../utilities/errorHandler`);
+
 module.exports = router;
+
 
 router.get(`/latest`, (req, res) => {
   return Message
@@ -16,7 +19,7 @@ router.get(`/latest`, (req, res) => {
     return res.json(messages);
   })
   .catch((err) => {
-    return res.json({ message: err });
+    return handleError(err, res);
   });
 })
 .get(`/by-topic/:topic_id`, (req, res) => {
@@ -29,7 +32,7 @@ router.get(`/latest`, (req, res) => {
     return res.json(messages);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return handleError(err, res);
   });
 })
 .post(`/`, isAuthenticated, (req, res) => {
@@ -41,6 +44,6 @@ router.get(`/latest`, (req, res) => {
     return res.json(message);
   })
   .catch((err) => {
-    return res.json({ message: err.message });
+    return handleError(err, res);
   });
 });

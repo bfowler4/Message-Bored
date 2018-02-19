@@ -1,5 +1,6 @@
 const express = require(`express`);
 const router = express.Router();
+const handleError = require(`../../utilities/errorHandler`);
 const User = require(`../../db/models/User`);
 
 module.exports = router;
@@ -12,7 +13,7 @@ router.route(`/`)
     return res.json(users);
   })
   .catch((err) => {
-    return res.status(400).json({ message: err.message });
+    return handleError(err, res);
   });
 })
 .post((req, res) => {
@@ -24,7 +25,7 @@ router.route(`/`)
     return res.json(user);
   })
   .catch((err) => {
-    return res.status(400).json({ message: err.message });
+    return handleError(err, res);
   });
 });
 
@@ -41,6 +42,6 @@ router.route(`/:id`)
     return res.json(user);
   })
   .catch((err) => {
-    return res.status(400).json({ message: err.message });
-  })
+    return handleError(err, res);
+  });
 });
