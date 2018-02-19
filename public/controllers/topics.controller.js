@@ -1,6 +1,6 @@
 angular.module(`myApp`)
-.controller(`TopicsController`, [`$scope`, `$routeParams`, `TopicsService`,
-  function($scope, $routeParams, TopicsService) {
+.controller(`TopicsController`, [`$scope`, `$location`, `$routeParams`, `TopicsService`,
+  function($scope, $location, $routeParams, TopicsService) {
     TopicsService.getTopics()
     .then(topics => {
       $scope.topics = topics;
@@ -10,5 +10,11 @@ angular.module(`myApp`)
         }
       }
     });
+
+    $scope.addMessage = function() {
+      $location.url(`topics/${$routeParams.id}/add_message`);
+    }
+
+    $scope.verifiedUser = localStorage.verifiedUser;
   }
 ])

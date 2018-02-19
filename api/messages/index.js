@@ -37,6 +37,7 @@ router.get(`/latest`, (req, res) => {
 })
 .post(`/`, isAuthenticated, (req, res) => {
   let { body, topic_id } = req.body;
+  body = body.replace(/[\r\n]+/g, ` `);
 
   return new Message({ body, topic_id, user_id: req.user.id })
   .save()

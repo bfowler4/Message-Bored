@@ -3,8 +3,20 @@ html, body {
   padding: 0;
 }
 
-h1 {
-  text-align: center;
+.header {
+  display: flex;
+  width: 770px;
+  margin: 0 auto;
+
+  .header_spacer {
+    width: 160px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    width: 610px;
+  }
 }
 
 .outer_container {
@@ -16,6 +28,7 @@ h1 {
   .navigation_bar {
     display: flex;
     flex-direction: column;
+    width: 160px;
 
     .upper_navigation, .lower_navigation {
       display: flex;
@@ -33,7 +46,7 @@ h1 {
     }
   }
 
-  .login_content_container, .register_content_container {
+  .login_content_container, .register_content_container, .add_message_content_container, .add_topic_content_container {
     display: flex;
     justify-content: center;
     width: 100%;

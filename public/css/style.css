@@ -2,8 +2,16 @@ html, body {
   margin: 0;
   padding: 0; }
 
-h1 {
-  text-align: center; }
+.header {
+  display: flex;
+  width: 770px;
+  margin: 0 auto; }
+  .header .header_spacer {
+    width: 160px; }
+  .header .title {
+    display: flex;
+    justify-content: center;
+    width: 610px; }
 
 .outer_container {
   display: flex;
@@ -12,7 +20,8 @@ h1 {
   margin: 0 auto; }
   .outer_container .navigation_bar {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 160px; }
     .outer_container .navigation_bar .upper_navigation, .outer_container .navigation_bar .lower_navigation {
       display: flex;
       flex-direction: column;
@@ -22,7 +31,7 @@ h1 {
     .outer_container .navigation_bar .border_div {
       border-bottom: 2px dotted black;
       margin: 10px 0; }
-  .outer_container .login_content_container, .outer_container .register_content_container {
+  .outer_container .login_content_container, .outer_container .register_content_container, .outer_container .add_message_content_container, .outer_container .add_topic_content_container {
     display: flex;
     justify-content: center;
     width: 100%; }

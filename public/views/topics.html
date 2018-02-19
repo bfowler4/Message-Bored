@@ -1,4 +1,9 @@
-<h1>Message Board</h1>
+<div class='header'>
+  <div class='header_spacer'></div>
+  <div class='title'>
+    <h1>Message Board Topics</h1>
+  </div>
+</div>
 
 <div class='outer_container'>
   <div ng-include="'/views/navigation.html'"></div>
@@ -7,6 +12,7 @@
     <h2>Topic: {{ topic.name }}</h2>
     <h3>User: {{ topic.user.username }}</h3>
     <h4>Created At: {{ topic.created_at }}</h4>
+    <button ng-if="verifiedUser" ng-click='addMessage()'>Add Message</button>
     <ol>
       <li ng-repeat='message in topic.messages'>
         <h4>User: {{ message.user.username }}</h4>

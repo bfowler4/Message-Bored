@@ -13,4 +13,14 @@ angular.module(`myApp`)
         return data.data;
       });
     }
+
+    this.addTopic = function(name) {
+      return $http.post(`http://localhost:8080/api/topics`, { name })
+      .then(topic => {
+        return topic.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
 }]);

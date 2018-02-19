@@ -30,9 +30,17 @@ angular.module(`myApp`)
     controller: `LatestController`,
     templateUrl: `views/latest.html`
   })
+  .when(`/topics/add_topic`, {
+    controller: `AddTopicController`,
+    templateUrl: `views/addTopic.html`
+  })
   .when(`/topics/:id`, {
     controller: `TopicsController`,
     templateUrl: `views/topics.html`
+  })
+  .when(`/topics/:id/add_message`, {
+    controller: `AddMessageController`,
+    templateUrl: `views/addMessage.html`
   })
   .otherwise({
     templateUrl: `/views/notfound.html`
