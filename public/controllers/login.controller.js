@@ -14,9 +14,9 @@ angular.module(`myApp`)
         } else {
           $scope.username = ``;
           $scope.password = ``;
-          $location.url(`/login`);
+          $scope.error = `Error: Incorrect username or password`;
         }
       });
     }
   }
-])
+]);

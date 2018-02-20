@@ -11,12 +11,13 @@
   <div class='login_content_container'>
     <div>
       <form>
-        <input type='text' ng-model='username' placeholder="username" autofocus>
+        <input type='text' ng-model='username' ng-change="error = ''" placeholder="username" autofocus>
         <br>
         <input type='password' ng-model='password' placeholder="password">
         <br>
         <button ng-click='login()'>Login</button>
       </form>
+      <p ng-if='error'>{{ error }}</p>
     </div>
   </div>
 </div>

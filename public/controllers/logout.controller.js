@@ -1,6 +1,6 @@
 angular.module(`myApp`)
-.controller(`LogoutController`, [`$location`, `verifiedUser`, `LogoutService`,
-  function($location, verifiedUser, LogoutService) {
+.controller(`LogoutController`, [`$location`, `LogoutService`,
+  function($location, LogoutService) {
     localStorage.removeItem(`verifiedUser`);
     $location.url(`/`);
   }

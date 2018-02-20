@@ -1,13 +1,13 @@
 angular.module(`myApp`)
-.service(`TopicsService`, [`$http`,
-  function($http) {
+.service(`TopicsService`, [`$http`, `$location`,
+  function($http, $location) {
     this.getTopics = function() {
       return $http.get(`http://localhost:8080/api/topics`)
       .then(data => {
         data.data.forEach(topic => {
           topic.created_at = new Date(topic.created_at).toString();
           topic.messages.forEach(message => {
-            message.created_at = new Date(topic.created_at).toString();
+            message.created_at = new Date(message.created_at).toString();
           });
         });
         return data.data;
@@ -20,7 +20,10 @@ angular.module(`myApp`)
         return topic.data;
       })
       .catch(err => {
-        console.log(err);
+        if (err.status === 401) {
+          return $location.url(`logout`);
+        }
+        return err.data.message;
       });
     }
 }]);

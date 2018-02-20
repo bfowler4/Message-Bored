@@ -6,9 +6,10 @@ angular.module(`myApp`)
       $scope.topics = topics;
       for (let topic of topics) {
         if (topic.id == $routeParams.id) {
-          $scope.topic = topic;
+          return $scope.topic = topic;
         }
       }
+      return $location.url(`notfound`);
     });
 
     $scope.addMessage = function() {

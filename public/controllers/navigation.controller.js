@@ -1,8 +1,9 @@
 angular.module(`myApp`)
-.controller(`NavigationController`, [`$scope`, `$location`, `TopicsService`, `verifiedUser`,
-  function($scope, $location, TopicsService, verifiedUser) {
+.controller(`NavigationController`, [`$scope`, `$location`, `TopicsService`,
+  function($scope, $location, TopicsService) {
     TopicsService.getTopics()
     .then(topics => {
+      topics.sort(compare);
       $scope.topics = topics;
     });
     
@@ -10,3 +11,8 @@ angular.module(`myApp`)
     $scope.goToTopic = (id) => { $location.url(`/topics/${id}`) };
     $scope.verifiedUser = localStorage.getItem(`verifiedUser`);
 }]);
+
+
+function compare(a , b) {
+  return a.messages.length < b.messages.length;
+}

@@ -9,10 +9,15 @@
   <div ng-include="'/views/navigation.html'"></div>
 
   <div class='add_message_content_container'>
-    <form>
-      <textarea rows='6' cols='50' ng-model='messageBody'></textarea>
-      <br>
-      <button ng-click='addMessage()'>Submit</button>
-    </form>
+    <div>
+      <h3>Topic: {{ topic_name }}</h3>
+    </div>
+    <div>
+      <form>
+        <textarea rows='6' cols='50' ng-model='messageBody'></textarea>
+        <br>
+        <button ng-click='addMessage()'>Submit</button>
+      </form>
+    </div>
   </div>
 </div>

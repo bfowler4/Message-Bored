@@ -8,7 +8,7 @@ angular.module(`myApp`)
         return user.data;
       })
       .catch(err => {
-        console.log(err);
+        return false;
       });
     }
   }

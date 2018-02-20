@@ -59,8 +59,12 @@ router.use(`/users`, usersRoute);
 router.use(`/topics`, topicsRoute);
 router.use(`/messages`, messagesRoute);
 
-router.post(`/login`, passport.authenticate(`local`), (req, res) => {
-  return res.json(req.user);
+router.post(`/login`, passport.authenticate(`local`, { failWithError: true}), 
+  (req, res, next) => {
+    return res.json(req.user);
+  },
+  (err, req, res, next) => {
+    return res.status(401).json({ message: `Incorrect username or password` });
 })
 .post(`/register`, (req, res) => {
   bcrypt.genSalt(saltRounds, function(err, salt) {

@@ -11,10 +11,11 @@
   <div class='add_topic_content_container'>
     <div>
       <form>
-        <input type='text' ng-model='topic_name'>
+        <input type='text' ng-model='topic_name' ng-change="error = ''">
         <br>
         <button ng-click='addTopic()'>Add Topic</button>
       </form>
+      <p ng-if="error">{{ error }}</p>
     </div>
   </div>
 </div>

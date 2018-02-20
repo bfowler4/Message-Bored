@@ -10,11 +10,11 @@ angular.module(`myApp`)
     $scope.addTopic = function() {
       TopicsService.addTopic($scope.topic_name)
       .then(topic => {
-        if (topic) {
+        if (topic.id) {
           return $location.url(`topics/${topic.id}`);
         }
         $scope.topic_name = ``;
-        return $location.url(`topics/add_topic`);
+        $scope.error = `Error: ${topic}`;
       });
     }
   }
